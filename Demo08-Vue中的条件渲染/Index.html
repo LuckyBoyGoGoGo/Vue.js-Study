@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中的条件渲染</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <div v-if="show">
+          用户名：<input type="text" key="username" id="username">
+      </div>
+      <div v-else="show">
+          年龄：<input type="text" key="age" id="age">
+      </div>
+
+
+      <!-- <div v-if="show === 'a'" data-test="v-if"> This is A </div>
+      <div v-else-if="show === 'b'">
+          This is B
+      </div>
+      <div v-else>
+          This is others
+      </div> -->
+      <!-- <div v-show="show" data-test="v-show"> {{message}} </div> -->
+    </div>
+    <script>
+      var vm = new Vue({
+          el: "#app",
+          data: {
+            show: false,
+            message: "Hello World"
+          }
+      })
+    </script>
+</body>
+</html>

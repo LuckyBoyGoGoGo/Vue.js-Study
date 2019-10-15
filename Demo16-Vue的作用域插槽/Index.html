@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue的作用域插槽</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <child>
+        <template slot-scope="props">
+            <li> {{props.items}} ---- hello2 </li>
+        </template>
+    </child>
+  </div>
+  <script>
+
+    Vue.component('child', {
+      data: function () {
+        return {
+          list: [1, 2, 3, 4]
+        }
+      },
+      template: '<div>\n' +
+        '   <ul>' +
+        '       <slot v-for="item of list" :items=item> {{item}} </slot>' +
+        '   </ul>' +
+        '</div>'
+    })
+
+    var vm = new Vue({
+      el: "#root",
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue中的列表渲染</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div v-for="item of list">
+          {{item}}
+      </div> -->
+    <!-- template占位符不会被浏览器渲染 -->
+    <!-- <template v-for="(item, index) in list" :key="item.id">
+      <div>
+          {{item.text}}
+      </div>
+      <span>
+          {{index}}
+      </span>
+    </template> -->
+    <!-- 对象的渲染 可以用引用来指定更改属性, 也可以用set方法更改对象的内容-->
+    <div v-for="(item, key, index) in userInfo" :key="index">
+        {{key}} -------- {{item}} -----{{index}}
+    </div>
+
+  </div>
+  <script>
+    // push pop shift unshift splice sort reverse
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        list: [{
+            id: "01",
+            text: "Hello"
+          },{
+            id: "02",
+            text: "Mike"
+          },{
+            id: "03",
+            text: "Lee"
+          },
+        ],
+        userInfo: {
+            name: "Dell",
+            age: 29,
+            gender: "male",
+            salary: "secret"
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>
